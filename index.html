@@ -88,8 +88,27 @@
   </footer>
 </main>
 <script>
-const specs = {json.dumps([name for name,_ in cards])};
-specs.forEach(name => vegaEmbed('#' + name, 'specs/' + name + '.json', {{actions:false, renderer:'svg'}}));
+const specs = [
+  "01_activation_map",
+  "02_ready_vs_activated",
+  "03_activation_lollipop",
+  "04_technology_mix",
+  "05_scale_scatter",
+  "06_speed_grouped",
+  "07_speed_slope",
+  "08_plan_bullet",
+  "09_download_total_line",
+  "10_download_area",
+  "11_download_growth_index",
+  "12_jun2018_share_donut"
+];
+
+specs.forEach(name => {
+  vegaEmbed('#' + name, 'specs/' + name + '.json', {
+    actions: false,
+    renderer: 'svg'
+  });
+});
 </script>
 </body>
 </html>

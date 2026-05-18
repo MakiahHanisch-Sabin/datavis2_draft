@@ -1,0 +1,58 @@
+{
+  "title": "Australia\u2019s internet downloads rose rapidly in 2017\u20132018",
+  "width": 620,
+  "height": 300,
+  "data": {
+    "url": ".data/download_tb_long.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.Connection == \"Total\""
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {
+      "field": "PeriodDate",
+      "type": "temporal",
+      "title": "Period"
+    },
+    "y": {
+      "field": "Terabytes",
+      "type": "quantitative",
+      "title": "Terabytes downloaded",
+      "axis": {
+        "format": "~s"
+      }
+    },
+    "tooltip": [
+      "Period",
+      {
+        "field": "Terabytes",
+        "format": ","
+      }
+    ]
+  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Inter, Arial",
+      "titleFont": "Inter, Arial"
+    },
+    "legend": {
+      "labelFont": "Inter, Arial",
+      "titleFont": "Inter, Arial"
+    },
+    "title": {
+      "font": "Inter, Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  }
+}

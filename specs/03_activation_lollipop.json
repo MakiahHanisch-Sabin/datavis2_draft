@@ -1,0 +1,76 @@
+{
+  "title": "Activation rate by state and territory",
+  "width": 620,
+  "height": 300,
+  "data": {
+    "url": ".data/nbn_state_jan2025.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#9ab7cf"
+      },
+      "encoding": {
+        "y": {
+          "field": "state",
+          "sort": "-x"
+        },
+        "x": {
+          "datum": 0
+        },
+        "x2": {
+          "field": "activation_rate"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 140
+      },
+      "encoding": {
+        "y": {
+          "field": "state",
+          "sort": "-x",
+          "title": "State"
+        },
+        "x": {
+          "field": "activation_rate",
+          "title": "Activated (%)"
+        },
+        "color": {
+          "field": "activation_rate",
+          "type": "quantitative",
+          "legend": null,
+          "scale": {
+            "scheme": "blues"
+          }
+        },
+        "tooltip": [
+          "state",
+          "activation_rate"
+        ]
+      }
+    }
+  ],
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Inter, Arial",
+      "titleFont": "Inter, Arial"
+    },
+    "legend": {
+      "labelFont": "Inter, Arial",
+      "titleFont": "Inter, Arial"
+    },
+    "title": {
+      "font": "Inter, Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  }
+}

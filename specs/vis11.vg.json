@@ -1,0 +1,74 @@
+{
+  "title": "Wireless data grew faster, but from a much smaller base",
+  "width": 620,
+  "height": 300,
+  "data": {
+    "url": "data/download_tb_long.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.Connection != \"Total\""
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "min",
+          "field": "Terabytes",
+          "as": "Base"
+        }
+      ],
+      "groupby": [
+        "Connection"
+      ]
+    },
+    {
+      "calculate": "datum.Terabytes / datum.Base * 100",
+      "as": "Index"
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {
+      "field": "PeriodDate",
+      "type": "temporal"
+    },
+    "y": {
+      "field": "Index",
+      "type": "quantitative",
+      "title": "Index (Jun 2017 = 100)"
+    },
+    "color": {
+      "field": "Connection"
+    },
+    "tooltip": [
+      "Period",
+      "Connection",
+      {
+        "field": "Index",
+        "format": ".1f"
+      }
+    ]
+  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Inter, Arial",
+      "titleFont": "Inter, Arial"
+    },
+    "legend": {
+      "labelFont": "Inter, Arial",
+      "titleFont": "Inter, Arial"
+    },
+    "title": {
+      "font": "Inter, Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  }
+}

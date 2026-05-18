@@ -1,0 +1,50 @@
+{
+  "title": "Most measured plan speeds dipped slightly from 2021 to 2022",
+  "width": 620,
+  "height": 330,
+  "data": {
+    "url": "data/speed_by_plan_long.csv"
+  },
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal"
+    },
+    "y": {
+      "field": "Measured_Mbps",
+      "type": "quantitative",
+      "title": "Measured Mbps"
+    },
+    "color": {
+      "field": "Plan"
+    },
+    "tooltip": [
+      "Plan",
+      "Year",
+      "Measured_Mbps"
+    ]
+  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Inter, Arial",
+      "titleFont": "Inter, Arial"
+    },
+    "legend": {
+      "labelFont": "Inter, Arial",
+      "titleFont": "Inter, Arial"
+    },
+    "title": {
+      "font": "Inter, Arial",
+      "fontSize": 16,
+      "anchor": "start"
+    }
+  }
+}
